@@ -431,6 +431,9 @@
   <data name="TicketEstimatedDuration" xml:space="preserve">
     <value>Estimated Duration</value>
   </data>
+  <data name="Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
   <data name="TicketEstimatedDurationShort" xml:space="preserve">
     <value>Estimated</value>
   </data>

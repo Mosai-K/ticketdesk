@@ -126,6 +126,7 @@ namespace TicketDesk.Domain
             decimal? actualDuraion,
             string targetDateAsString,
             string resolutionDateAsString,
+            string department,
             ApplicationSetting settings)
         {
             const TicketActivity activity = TicketActivity.EditTicketInfo;
@@ -201,6 +202,11 @@ namespace TicketDesk.Domain
                     {
                         sb.AppendLine(string.Format("<dd>    " + Strings.Changes_From_To + "</dd>", PropertyUtility.GetPropertyDisplayString<Ticket>(p => p.TicketType), ticket.TicketType, ticketType));
                         ticket.TicketType = ticketType;
+                    }
+                    if (ticket.Department != department)
+                    {
+                        sb.AppendLine(string.Format("<dd>    " + Strings.Changes_From_To + "</dd>", PropertyUtility.GetPropertyDisplayString<Ticket>(p => p.Department), ticket.Department, department));
+                        ticket.Department = department;
                     }
                     if (ticket.Category != category)
                     {

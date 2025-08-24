@@ -125,11 +125,12 @@ namespace TicketDesk.Web.Client.Controllers
             decimal? estimatedDuration,
             decimal? actualDuration,
             string targetDateAsString,
+            string department,
             string resolutionDateAsString)
         {
             details = details.StripHtmlWhenEmpty();
             var projectName = await Context.Projects.Where(p => p.ProjectId == projectId).Select(s=>s.ProjectName).FirstOrDefaultAsync();
-            var activityFn = Context.TicketActions.EditTicketInfo(comment, projectId, projectName, title, details, priority, dueDateAsString, ticketType, category, owner, tagList, estimatedDuration, actualDuration, targetDateAsString, resolutionDateAsString, Context.TicketDeskSettings);
+            var activityFn = Context.TicketActions.EditTicketInfo(comment, projectId, projectName, title, details, priority, dueDateAsString, ticketType, category, owner, tagList, estimatedDuration, actualDuration, targetDateAsString, department, resolutionDateAsString, Context.TicketDeskSettings);
             return await PerformTicketAction(ticketId, activityFn, TicketActivity.EditTicketInfo);
         }
 

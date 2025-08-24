@@ -33,6 +33,7 @@ namespace TicketDesk.Domain.Model
             DueDate = null;
             EstimatedDuration = null;
             ActualDuration = null;
+            Department = null;
             TargetDate = null;
             ResolutionDate = null;
             // ReSharper restore DoNotCallOverridableMethodsInConstructor
@@ -96,6 +97,10 @@ namespace TicketDesk.Domain.Model
 
         [Display(ResourceType = typeof(Strings), Name = "TicketActualDuration", ShortName = "TicketActualDurationShort")]
         public decimal? ActualDuration { get; set; }
+
+        [StringLength(100)]
+        [Display(ResourceType = typeof(Strings), Name = "Department", ShortName = "DepartmentShort")]
+        public string Department { get; set; }
 
         [NotMapped]
         public string DueDateAsString
